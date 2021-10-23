@@ -1,9 +1,14 @@
 /* eslint-disable no-undef */
-import logo from '../assets/hubble_logo.png';
-import css from './App.module.css';
-import { ethers } from 'ethers';
-import { useState } from 'react';
+import logo from '../assets/hubble_logo_and_text.svg';
+import mainImage from '../assets/hubble_cat_and_pangolin.jpg';
 
+import 'bootstrap/dist/css/bootstrap.css';
+import css from './App.module.css';
+
+import { useState } from 'react';
+import classNames from 'classnames';
+
+import { ethers } from 'ethers';
 import { handleAccountsChanged, handleChainIdChanged } from '../utils/data';
 
 function App() {
@@ -54,20 +59,38 @@ function App() {
 
   return (
     <div className={css.app}>
-      <header className={css.appHeader}>
-        <img src={logo} className={css.appLogo} alt="logo" />
-        {isConnect ? (
-          <button className="App-button">
-            {isAvalancheNetwork ? "Claim" : "Please change to Avalanche network"}
-          </button>
-        ) : (
-          <button
-            className={css.appButton}
-            onClick={() => connectToMetamask()}>
-            Connect to Metamask
-          </button>
-        )}
-      </header>
+      <div className={css.headerSection}>
+        <div className={classNames(css.headerContainer, 'container')}>
+          <img src={logo} alt="logo" />
+
+          {isConnect ? (
+            <button className={css.metamaskBtn}>
+              {isAvalancheNetwork ? "Connected" : "Please change to Avalanche network"}
+            </button>
+          ) : (
+            <button
+              className={css.metamaskBtn}
+              onClick={() => connectToMetamask()}>
+              Connect to Metamask
+            </button>
+          )}
+        </div>
+        <div className={classNames(css.descriptionContainer, 'container')}>
+            <div className={css.description}>
+              Deep dive to the galaxy and magical things with your Hubble Space Cat 
+            </div>
+        </div>
+      </div>
+      <div className={classNames(css.contentSection, 'container')}>
+        <div className={css.contentBasic}>
+          <h2>What are Hubble Space Cat?</h2>
+          <p>Hubble Space Cat is a collection of programmatically generated random NFTs on the Avalanche blockchain.</p> 
+          <p>Each Space Cat are unique and stored as ERC-721 tokens on the Avalanche blockchain and hosted on IPFS.</p>
+        </div>
+        <div className={css.contentImages}>
+          <img src={mainImage} className={css.mainImage} alt="spaceCat" />
+        </div>
+      </div>
     </div>
   );
 }

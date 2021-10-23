@@ -1,41 +1,83 @@
 .app {
-  text-align: center;
+ 
 }
 
-.appLogo {
-  height: 40vmin;
-  pointer-events: none;
-  margin-bottom: 50px;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .appLogo {
-    animation: appLogoSpin infinite 20s linear;
-  }
-}
-
-.appHeader {
-  background-color: #fff;
-  min-height: 100vh;
+.headerSection {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: url("../assets/hubble_background.jpg");
+  background-size: cover;
+  min-height: 700px;
 }
 
-.appButton {
-  padding: 10px 20px;
-  color: #000;
+.headerContainer {
+  height: 50px;
+  display: flex;
+  margin: 30px 150px;
+  justify-content: space-between;
+}
+
+.metamaskBtn {
+  color: #fff;
+
+  background-color: transparent;
+  background-clip: padding-box;
+
+  font-size: .875rem;
+  font-weight: 700;
+  line-height: 1rem;
+
+  border: 3px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right,#32c5ff,#b620e0 45.93%,#ffaa12 86.01%);
+
   cursor: pointer;
 }
 
-@keyframes appLogoSpin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.descriptionContainer {
+  height: 300px;
+  margin: 20px 150px;
+  display: flex;
+  text-align: right;
+}
+
+.description {
+  color: #fff;
+  padding: 80px 0 0 650px;
+
+  font-size: 2.875rem;
+  font-weight: 700;
+  line-height: 4rem;
+}
+
+.contentSection {
+  min-height: 500px;
+
+  padding: 20px 150px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.contentBasic {
+  padding-right: 250px;
+}
+
+.contentBasic h2 {
+  font-size: 2.175rem;
+}
+
+.contentBasic p {
+  margin-top: 20px;
+
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.mainImage {
+  width: 400px;
+  object-fit: cover;
+
+  position: relative;
+  top: -200px;
 }
