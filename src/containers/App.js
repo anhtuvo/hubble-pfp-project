@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import logo from '../assets/hubble_logo.png';
-import './App.css';
+import css from './App.module.css';
 import { ethers } from 'ethers';
 import { useState } from 'react';
 
@@ -53,16 +53,16 @@ function App() {
   // hubble.signedContract = hubble.contract.connect(signer);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className={css.app}>
+      <header className={css.appHeader}>
+        <img src={logo} className={css.appLogo} alt="logo" />
         {isConnect ? (
           <button className="App-button">
             {isAvalancheNetwork ? "Claim" : "Please change to Avalanche network"}
           </button>
         ) : (
           <button
-            className="App-button"
+            className={css.appButton}
             onClick={() => connectToMetamask()}>
             Connect to Metamask
           </button>
